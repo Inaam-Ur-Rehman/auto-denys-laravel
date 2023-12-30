@@ -1,0 +1,52 @@
+@import "/node_modules/swiper/swiper.css";
+@import "/node_modules/swiper/modules/navigation.css";
+@import "/node_modules/swiper/modules/pagination.css";
+@import url('https://fonts.googleapis.com/css2?family=Anybody:wght@100;200;300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    font-family: 'Anybody', sans-serif;
+}
+.swiper-button-prev, .swiper-button-next{
+    width: 50px !important;
+    height: 50px !important;
+}
+.swiper-button-prev:after{
+    background-image: url('/public/images/right.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    content: "";
+}
+.swiper-button-next:after{
+    background-image: url('/public/images/right.png');
+    rotate: 180deg;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50%;
+    content: "";
+}
+
+
+.swiper-button-prev:after,
+.swiper-rtl .swiper-button-next:after {
+    content: '' !important;
+}
+
+.swiper-button-next:after,
+.swiper-rtl .swiper-button-prev:after {
+    content: '' !important;
+}
+
+.swiper-button-prev, .swiper-button-next{
+    top: 30% !important;
+}
