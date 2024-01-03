@@ -3,7 +3,7 @@
         height={{ 200 }} class="object-cover w-full mx-auto rounded-lg" />
     <div class="bg-primary p-4 flex flex-col gap-4 rounded-b-[20px]">
         <h2 class="text-2xl font-bold text-secondary min-h-[60px]">{{ $product->name }}</h2>
-        <p class="text-xl text-white">
+        <p class="text-xl text-white line-clamp-2">
             <span>{{ $product->engine }}</span>
             <span>, {{ $product->company->name }}</span>
             <span>, {{ $product->mileage }} km</span>
