@@ -5,8 +5,8 @@
                 height={{ 200 }} />
             <div class="flex flex-col justify-center gap-4 font-bold text-white">
                 <a href="/"> OVER ONS </a>
-                <a href="/"> AANBOD </a>
-                <a href="/"> AANKOOP </a>
+                <a href="{{ route('aanbod.index') }}"> AANBOD </a>
+                <a href={{ route('aankoop.index') }}> AANKOOP </a>
                 <a href="/"> GARANTIE </a>
             </div>
         </div>
