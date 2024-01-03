@@ -1,0 +1,16 @@
+{
+  "public/car.svg": {
+    "file": "assets/car-3d14b8b7.svg",
+    "src": "public/car.svg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-43a1728b.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-d2e9a25e.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
