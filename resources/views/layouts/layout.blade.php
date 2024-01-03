@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" rel="stylesheet" href="/assets/slick.css" />
+    <link type="text/css" rel="stylesheet" href="/assets/slick-theme.css" />
 
     <title>Laravel</title>
 
@@ -17,9 +19,11 @@
         }
     </style>
     @livewireStyles
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body class="antialiased" x-data x-cloak>
+
     @if (session()->has('message'))
         <!-- Global notification live region, render this permanently at the end of the document -->
         <div aria-live="assertive" x-data="{ show: true }" x-init="setTimeout(() => show = false, 4000)" x-show="show"
@@ -64,6 +68,7 @@
     @livewireScripts
 
     @vite('resources/js/app.js')
+    <script type="text/javascript" src="/assets/slick.min.js"></script>
 </body>
 
 </html>

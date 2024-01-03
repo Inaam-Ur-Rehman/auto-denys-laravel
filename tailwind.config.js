@@ -4,6 +4,7 @@ const config = {
         "./resources/**/*.js",
         "./resources/**/*.vue",
         "./resources/**/*.css",
+        "./resources/js/*.js",
         "./node_modules/xtendui/src/*.mjs",
     ],
     theme: {
@@ -17,6 +18,9 @@ const config = {
             },
         },
     },
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [
+        require("@tailwindcss/forms"),
+        require("@tailwindcss/typography"),
+    ],
 };
 export default config;

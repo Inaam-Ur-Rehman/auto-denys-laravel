@@ -206,11 +206,12 @@
                                     <span
                                         class="absolute top-0 left-0 px-2 py-1 text-xs font-bold text-white rounded-br-lg bg-primary">{{ $product->badge }}</span>
                                 </div>
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
-                                    class="object-contain w-full h-48">
+                                <img src="{{ asset('storage/' . $product->image[0]) }}" alt="{{ $product->name }}"
+                                    class="object-contain w-full aspect-video">
+
                                 <h2 class="mt-4 text-base font-semibold text-[#4F4F4F]">{{ $product->name }}</h2>
                                 <div class="mt-2 text-sm text-[#4F4F4F]">
-                                    {!! Str::limit($product->description, 100) !!}
+                                    {!! Str::limit($product->description, 40) !!}
                                 </div>
                                 <div class="flex flex-wrap items-center">
                                     <p class="mt-2 text-sm text-black/50">{{ $product->fuel }} | </p>
@@ -234,7 +235,12 @@
                             </div>
                             <div class="flex gap-2 mt-4">
                                 <x-heroicon-o-arrow-right class="w-5 h-5 text-primary" />
-                                <a href="/" class="text-base text-primary">Bekijk deze auto</a>
+                                <a href="
+                                    {{ // like wagons/audi-a3-1-6-tdi-2015
+                                        // as /product-name slug
+                                        route('details.index', ['slug' => $product->slug]) }}
+                                "
+                                    class="text-base text-primary">Bekijk deze auto</a>
                             </div>
                         </div>
                     @endforeach

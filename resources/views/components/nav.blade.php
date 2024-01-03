@@ -1,5 +1,5 @@
 <nav x-data="{ open: false }" x-cloak
-    class="py-4 bg-primary text-white w-full md:max-w-max px-6 md:px-24 rounded-b-[40px] md:absolute md:top-0 md:left-1/2 z-40 transform md:-translate-x-1/2 ">
+    class="py-4 bg-primary text-white w-full md:max-w-max px-6 md:px-24 rounded-b-[40px] md:absolute md:top-0 md:left-1/2 z-40 transform md:-translate-x-1/2 fixed top-0 left-auto right-auto">
     <div class="flex justify-between md:hidden">
         <a href="{{ route('home') }}" class="mb-4 ">
             <img class="object-cover px-6 w-44" src={{ asset('images/logo.png') }} width={{ 128 }}

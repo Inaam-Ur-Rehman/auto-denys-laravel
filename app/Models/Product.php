@@ -11,6 +11,10 @@ class Product extends Model
 {
     use HasFactory;
     use FilterQueryString;
+    protected $casts = [
+        'image' => 'array',
+        'options' => 'array',
+    ];
 
     protected $guarded = [];
     protected $filters = ['in', 'sort'];

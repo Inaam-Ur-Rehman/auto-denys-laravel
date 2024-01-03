@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/aankoop', [\App\Http\Controllers\AankoopController::class, 'index'])->name('aankoop.index');
 Route::get('/aanbod', [\App\Http\Controllers\AanbodController::class, 'index'])->name('aanbod.index');
+Route::get('/wagens/{slug}', [\App\Http\Controllers\CarsDetailsController::class, 'index'])->name('details.index');
