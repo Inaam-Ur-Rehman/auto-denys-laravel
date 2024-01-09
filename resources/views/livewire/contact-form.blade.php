@@ -1,4 +1,4 @@
-<form>
+<form wire:submit.prevent='save'>
     <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
         <div>
             <label for="first_name" class="block text-sm font-medium text-gray-700">Volledige naam</label>
@@ -39,7 +39,7 @@
         <label for="message" class="block mt-4 text-sm font-medium text-gray-700">Bericht</label>
         <textarea wire:model="message" id="message" rows="4"
             class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-primary focus:border-primary sm:text-sm"></textarea>
-        @error(' message')
+        @error('message')
             <span class="text-red-500">{{ $message }}</span>
         @enderror
     </div>
