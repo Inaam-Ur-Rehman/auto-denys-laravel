@@ -1,12 +1,7 @@
-<div class="relative w-full bg-black/60 -z-10 border-b-2 border-primary">
-    <video
-        class="absolute mix-blend-color object-cover w-full h-full aspect-video"
-        src="{{ asset('background.mp4') }}"
-        autoplay
-        muted
-        loop
-    ></video>
-    <div class="py-40 md:py-64">
+<div class="relative w-full border-b-2 bg-black/60 -z-10 border-primary">
+    <video class="absolute object-cover w-full h-full mix-blend-color aspect-video -z-10"
+        src="{{ asset('background.mp4') }}" autoplay muted loop></video>
+    <div class="py-40 md:py-64 -z-10">
         <h1 class="max-w-[500px] mx-auto text-5xl text-center text-white font-extrabold">
             EEN AUTO KOPEN IN VERTROUWEN BIJ OPKOPER DENYS.
         </h1>
@@ -14,18 +9,5 @@
             Wij maken het eenvoudig om jouw toekomstige wagen te vinden.
         </p>
     </div>
-    <div class="absolute flex items-center font-bold gap-6 -bottom-6 left-1/2 transform -translate-x-1/2">
-        <a
-            href="/"
-            class="bg-primary px-4 py-2 rounded-full text-white whitespace-nowrap"
-        >
-        ONS AANBOD
-        </a>
-        <a
-            href="/"
-            class=" px-4 py-2 rounded-full text-primary border-2 border-primary bg-white  whitespace-nowrap"
-        >
-        VIND UW WAGEN
-        </a>
-    </div>
+
 </div>

@@ -14,7 +14,10 @@ const config = {
                 secondary: "#FFFF00",
             },
             backgroundImage: {
-                aankoop: "url('/public/background.png')",
+                homeHero: "url('/public/hero.webp')",
+                aankoop: "url('/public/aankoop.webp')",
+                car: "url('/public/car.webp')",
+                contact: "url('/public/contact-bg.webp')",
             },
         },
     },

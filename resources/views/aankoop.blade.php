@@ -3,8 +3,8 @@
 @section('content')
     {{-- Hero --}}
     <div class="relative w-full mb-8">
-        <img class="absolute object-cover w-full h-full aspect-video brightness-[40%] -z-40"
-            src="{{ asset('/background.png') }}" />
+        <img class="absolute object-cover w-full h-full aspect-video brightness-[70%] -z-40"
+            src="{{ asset('/aankoop.webp') }}" />
         <div class="grid items-center grid-cols-1 gap-8 px-4 pt-40 pb-20 mx-auto max-w-7xl md:pt-52 md:grid-cols-2 ">
             <div>
                 <h1 class="my-2 text-4xl font-extrabold text-secondary">Verkoop uw wagen aan Auto Denys</h1>
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="bg-[url('/public/car.svg')] bg-cover bg-no-repeat bg-center md:py-16 w-full">
+    <div class="w-full bg-center bg-no-repeat bg-cover bg-car md:py-16">
         <div class="grid grid-cols-1 gap-8 px-4 py-16 mx-auto mt-16 max-w-7xl lg:grid-cols-3">
             <div class="flex flex-col gap-6 lg:col-span-2">
                 <h2 class="text-4xl font-bold text-primary">Meld uw auto aan via het formulier</h2>

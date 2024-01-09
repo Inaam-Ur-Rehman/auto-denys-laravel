@@ -14,4 +14,12 @@ body{
 
 .slick>.slick-list>.slick-track>.swiper-slide{
     margin: 0 20px;
+    animation-direction: reverse;
 }
+
+.btn:hover,button:hover{
+    /* zoom */
+    transform: scale(1.1);
+    transition: all 0.3s ease-in-out;
+}
+

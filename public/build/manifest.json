@@ -1,10 +1,14 @@
 {
-  "public/car.svg": {
-    "file": "assets/car-3d14b8b7.svg",
-    "src": "public/car.svg"
+  "public/car.webp": {
+    "file": "assets/car-618b51dc.webp",
+    "src": "public/car.webp"
+  },
+  "public/contact-bg.webp": {
+    "file": "assets/contact-bg-208ddddc.webp",
+    "src": "public/contact-bg.webp"
   },
   "resources/css/app.css": {
-    "file": "assets/app-05d90058.css",
+    "file": "assets/app-8b7318fb.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
