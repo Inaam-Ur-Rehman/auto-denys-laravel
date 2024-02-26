@@ -1,9 +1,10 @@
 <div>
-    <div class="flex items-center justify-between mx-auto max-w-7xl">
+    <div class="flex flex-col sm:flex-row items-center gap-4 justify-between mx-auto max-w-7xl">
         <p>
             Gevonden wagens ({{ $productsCount }})
         </p>
-        <div>
+
+        {{-- <div>
             <label>
                 Sorteren:
             </label>
@@ -11,193 +12,24 @@
                 <option value="desc">Nieuwste eerst</option>
                 <option value="asc">Oudste eerst</option>
             </select>
-        </div>
+        </div> --}}
+        {{-- search --}}
+        <form wire:submit.prevent='search'>
+            <div class="relative ">
+                <input type="text" wire:model="query" wire:keydown.enter="search" name="query" placeholder="Zoeken"
+                    class="w-full min-w-[250px] border-[1px] rounded outline-none ring-primary">
+                <button type="submit" class="absolute top-0 right-0 py-3 px-2">
+                    <x-heroicon-o-magnifying-glass class="w-5 h-5 text-primary" />
+                </button>
+            </div>
+        </form>
     </div>
 
-    <div class="grid min-h-screen grid-cols-1 gap-16 mx-auto my-4 md:grid-cols-12 max-w-7xl">
-        <div class="mb-8 md:col-span-3">
-            <div class="grid w-full grid-cols-1 gap-6 mt-4 sm:grid-cols-2 md:grid-cols-1">
-                <div x-data="{ merk: true }">
-                    <div class="flex items-center justify-between border-b-[1px] border-primary">
-                        <p>
-                            Merk
-                        </p>
-                        <x-heroicon-o-chevron-down x-show="!merk" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="merk = true" />
-                        <x-heroicon-o-chevron-up x-show="merk" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="merk = false" />
-                    </div>
-                    <div x-show="merk">
-                        @foreach ($companies as $company)
-                            {{-- checkbox for slect multile brands --}}
-                            <div class="flex items-center mt-2">
-                                <input wire:model.live='merk' value="{{ Str::lower($company->name) }}" type="checkbox"
-                                    class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                                <label class="ml-3 text-sm text-black">
-                                    {{ Str::upper($company->name) }}
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div x-data="{ prijs: true }">
-                    <div class="flex items-center justify-between border-b-[1px] border-primary">
-                        <p>
-                            Prijs
-                        </p>
-                        <x-heroicon-o-chevron-down x-show="!prijs" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="prijs = true" />
-                        <x-heroicon-o-chevron-up x-show="prijs" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="prijs = false" />
-                    </div>
-                    <div x-show="prijs" class="w-full">
+    <div class="grid grid-cols-1 gap-16 mx-auto my-4 md:grid-cols-12 max-w-7xl md:my-24">
 
-                        {{-- checkbox for slect multile brands --}}
-                        <div class="flex flex-col mt-2">
-                            <label class="text-sm text-black">
-                                Minimum
-                            </label>
-                            <input wire:model.live='minPrice' type="number"
-                                class="w-full text-xl rounded outline-none border-primary text-primary focus:ring-primary ">
-
-                        </div>
-                        <div class="flex flex-col mt-2">
-                            <label class="text-sm text-black">
-                                Maximum
-                            </label>
-                            <input wire:model.live='maxPrice' type="number"
-                                class="w-full text-xl rounded outline-none border-primary text-primary focus:ring-primary ">
-
-                        </div>
-                    </div>
-                </div>
-                <div x-data="{ brandstof: false }">
-                    <div class="flex items-center justify-between border-b-[1px] border-primary">
-                        <p>
-                            Brandstof
-                        </p>
-                        <x-heroicon-o-chevron-down x-show="!brandstof" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="brandstof = true" />
-                        <x-heroicon-o-chevron-up x-show="brandstof" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="brandstof = false" />
-                    </div>
-                    <div x-show="brandstof">
-                        @foreach ($fuels as $fuel)
-                            {{-- checkbox for slect multile brands --}}
-                            <div class="flex items-center mt-2">
-                                <input wire:model.live='brandstof' value="benzine" type="checkbox"
-                                    class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                                <label class="ml-3 text-sm text-black">
-                                    Benzine
-                                </label>
-                            </div>
-                            <div class="flex items-center mt-2">
-                                <input wire:model.live='brandstof' value="diesel" type="checkbox"
-                                    class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                                <label class="ml-3 text-sm text-black">
-                                    Diesel
-                                </label>
-                            </div>
-                            <div class="flex items-center mt-2">
-                                <input wire:model.live='brandstof' value="elektrisch" type="checkbox"
-                                    class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                                <label class="ml-3 text-sm text-black">
-                                    Elektrisch
-                                </label>
-                            </div>
-                            <div class="flex items-center mt-2">
-                                <input wire:model.live='brandstof' value="hybride" type="checkbox"
-                                    class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                                <label class="ml-3 text-sm text-black">
-                                    Hybride
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div x-data="{ transmissie: false }">
-                    <div class="flex items-center justify-between border-b-[1px] border-primary">
-                        <p>
-                            Transmissie
-                        </p>
-                        <x-heroicon-o-chevron-down x-show="!transmissie" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="transmissie = true" />
-                        <x-heroicon-o-chevron-up x-show="transmissie" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="transmissie = false" />
-                    </div>
-                    <div x-show="transmissie">
-
-                        {{-- checkbox for slect multile brands --}}
-                        <div class="flex items-center mt-2">
-                            <input wire:model.live='transmissie' value="automatisch" type="checkbox"
-                                class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                            <label class="ml-3 text-sm text-black">
-                                Automatisch
-                            </label>
-                        </div>
-                        <div class="flex items-center mt-2">
-                            <input wire:model.live='transmissie' value="manueel" type="checkbox"
-                                class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                            <label class="ml-3 text-sm text-black">
-                                Manueel
-                            </label>
-                        </div>
-
-                    </div>
-                </div>
-                <div x-data="{ carrosserie: false }">
-                    <div class="flex items-center justify-between border-b-[1px] border-primary">
-                        <p>
-                            Type Carrosserie
-                        </p>
-                        <x-heroicon-o-chevron-down x-show="!carrosserie" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="carrosserie = true" />
-                        <x-heroicon-o-chevron-up x-show="carrosserie" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="carrosserie = false" />
-                    </div>
-                    <div x-show="carrosserie">
-                        @foreach ($bodyWork as $carro)
-                            {{-- checkbox for slect multile brands --}}
-                            <div class="flex items-center mt-2">
-                                <input wire:model.live='carrosserie' value="{{ Str::lower($carro->name) }}"
-                                    type="checkbox"
-                                    class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                                <label class="ml-3 text-sm text-black">
-                                    {{ Str::upper($carro->name) }}
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-                <div x-data="{ emissieklasse: false }">
-                    <div class="flex items-center justify-between border-b-[1px] border-primary">
-                        <p>
-                            Emissieklasse
-                        </p>
-                        <x-heroicon-o-chevron-down x-show="!emissieklasse" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="emissieklasse = true" />
-                        <x-heroicon-o-chevron-up x-show="emissieklasse" class="w-3 h-3 cursor-pointer text-primary"
-                            @click="emissieklasse = false" />
-                    </div>
-                    <div x-show="emissieklasse">
-                        @foreach ($emission as $emis)
-                            {{-- checkbox for slect multile brands --}}
-                            <div class="flex items-center mt-2">
-                                <input wire:model.live='emissieklasse' value="{{ Str::lower($emis->name) }}"
-                                    type="checkbox"
-                                    class="w-4 h-4 rounded outline-none border-primary text-primary focus:ring-primary">
-                                <label class="ml-3 text-sm text-black">
-                                    {{ Str::upper($emis->name) }}
-                                </label>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="w-full md:col-span-9">
+        <div class="w-full md:col-span-12">
             @if ($productsCount > 0)
-                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
                     @foreach ($this->products as $product)
                         <div
                             class="relative flex flex-col justify-between p-4 overflow-hidden bg-white rounded shadow-md">
